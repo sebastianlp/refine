@@ -128,7 +128,7 @@ export const createResources = async (
         temp.cleanupSync();
 
         const jscodeshiftExecutable = require.resolve(".bin/jscodeshift");
-        const { stderr, stdout } = execa.sync(jscodeshiftExecutable, [
+        const { stderr } = execa.sync(jscodeshiftExecutable, [
             "./",
             "--extensions=ts,tsx,js,jsx",
             "--parser=tsx",
@@ -144,8 +144,6 @@ export const createResources = async (
             `--__resource=${resource}`,
             `--__resourceName=${resourceName}`,
         ]);
-
-        // console.log(stdout);
 
         if (stderr) {
             console.log(stderr);

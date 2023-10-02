@@ -25,6 +25,6 @@ export const Prompt: React.FC<PromptProps> = ({
         router.events.on("routeChangeStart", routeChangeStart);
 
         return () => router.events.off("routeChangeStart", routeChangeStart);
-    }, [when]);
+    }, [message, router.events, setWarnWhen, when]);
     return null;
 };

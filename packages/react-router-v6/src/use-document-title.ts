@@ -14,7 +14,7 @@ export const useDocumentTitle = (title?: Title) => {
         } else {
             document.title = translate(title.i18nKey);
         }
-    }, [title]);
+    }, [title, translate]);
 
     return (title: Title) => {
         if (typeof title === "string") {

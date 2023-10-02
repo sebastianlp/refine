@@ -19,7 +19,7 @@ export const replaceImports = (content: string): string => {
             match;
 
         const regexMatch = Object.entries(packageScopeMap).find(
-            ([key, value]) =>
+            ([_key, value]) =>
                 // value is regexp, key is package name
                 value.test(packageName),
         );

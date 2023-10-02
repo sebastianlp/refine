@@ -1,4 +1,3 @@
-import fs from "fs";
 import matter from "gray-matter";
 import { marked } from "marked";
 import sanitizeHtml from "sanitize-html";

@@ -47,7 +47,7 @@ export const notificationProvider = (): NotificationProvider => {
             if (type === "progress") {
                 if (isNotificationActive(key)) {
                     updateNotification({
-                        id: key!,
+                        id: key ?? "",
                         message: (
                             <Group position="apart" noWrap>
                                 <Group spacing="xs" position="center">
@@ -133,7 +133,7 @@ export const notificationProvider = (): NotificationProvider => {
             } else {
                 if (isNotificationActive(key)) {
                     updateNotification({
-                        id: key!,
+                        id: key ?? "",
                         color: type === "success" ? "primary" : "red",
                         icon:
                             type === "success" ? (

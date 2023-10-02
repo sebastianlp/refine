@@ -12,7 +12,7 @@ export const RouterComponent: NonNullable<
         if (isError && !isFetching) {
             replace("/login");
         }
-    }, [isError, isFetching]);
+    }, [isError, isFetching, replace]);
 
     return children;
 };

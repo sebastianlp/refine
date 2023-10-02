@@ -85,7 +85,7 @@ export const ListButton: React.FC<ListButtonProps> = ({
 
     const listUrl = resource ? generateListUrl(resource, meta) : "";
 
-    const { variant, styles, ...commonProps } = rest;
+    const { variant, styles: _styles, ...commonProps } = rest;
 
     if (accessControlEnabled && hideIfUnauthorized && !data?.can) {
         return null;

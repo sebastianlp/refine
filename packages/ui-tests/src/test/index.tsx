@@ -12,7 +12,6 @@ import {
     NotificationProvider,
     IResourceItem,
     RouterBindings,
-    IRouterProvider,
 } from "@refinedev/core";
 import { IRouterContext } from "@refinedev/core/dist/interfaces";
 

@@ -75,7 +75,7 @@ export const CreateButton: React.FC<CreateButtonProps> = ({
 
     const createUrl = resource ? generateCreateUrl(resource, meta) : "";
 
-    const { variant, styles, ...commonProps } = rest;
+    const { variant, styles: _styles, ...commonProps } = rest;
 
     if (accessControlEnabled && hideIfUnauthorized && !data?.can) {
         return null;

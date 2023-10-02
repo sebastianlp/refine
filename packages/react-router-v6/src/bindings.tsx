@@ -26,7 +26,7 @@ export const stringifyConfig = {
 };
 
 export const routerBindings: RouterBindings = {
-    go: () => {
+    go: function useGoBinding() {
         const { search: existingSearch, hash: existingHash } = useLocation();
         const navigate = useNavigate();
 
@@ -81,7 +81,7 @@ export const routerBindings: RouterBindings = {
 
         return fn;
     },
-    back: () => {
+    back: function useBackBinding() {
         const navigate = useNavigate();
 
         const fn = useCallback(() => {
@@ -90,7 +90,7 @@ export const routerBindings: RouterBindings = {
 
         return fn;
     },
-    parse: () => {
+    parse: function useParseBinding() {
         let params = useParams();
         const { pathname, search } = useLocation();
         const { resources } = useContext(ResourceContext);

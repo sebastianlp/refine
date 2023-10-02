@@ -80,9 +80,11 @@ export const EditButton: React.FC<EditButtonProps> = ({
             );
     };
 
+    const idToUse = recordItemId ?? id;
+
     const editUrl =
-        resource && (recordItemId ?? id)
-            ? generateEditUrl(resource, recordItemId! ?? id!, meta)
+        resource && typeof idToUse !== "undefined"
+            ? generateEditUrl(resource, idToUse, meta)
             : "";
 
     const { sx, ...restProps } = rest;

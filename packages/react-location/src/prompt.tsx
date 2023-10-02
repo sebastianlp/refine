@@ -23,7 +23,7 @@ export const Prompt: React.FC<PromptProps> = ({
             }
         });
         return unblock;
-    }, [when, location, message]);
+    }, [when, location, message, setWarnWhen]);
 
     return null;
 };

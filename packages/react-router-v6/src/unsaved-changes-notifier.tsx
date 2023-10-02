@@ -18,7 +18,7 @@ export const UnsavedChangesNotifier: React.FC<UnsavedChangesNotifierProps> = ({
 
     React.useEffect(() => {
         return () => setWarnWhen?.(false);
-    }, [pathname]);
+    }, [pathname, setWarnWhen]);
 
     const warnMessage = React.useMemo(() => {
         return translate(translationKey, message);

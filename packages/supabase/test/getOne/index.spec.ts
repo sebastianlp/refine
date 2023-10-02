@@ -1,4 +1,3 @@
-import nock from "nock";
 import { dataProvider } from "../../src";
 import supabaseClient from "../supabaseClient";
 import "./index.mock";

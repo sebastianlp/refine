@@ -27,7 +27,6 @@ import {
     useMeta,
 } from "@hooks";
 import {
-    queryKeys,
     pickDataProvider,
     pickNotDeprecated,
     useActiveAuthProvider,

@@ -21,6 +21,18 @@
             "rules": {
                 "@typescript-eslint/no-var-requires": "off"
             }
+        },
+        {
+            "files": ["packages/codemod/**/*"],
+            "rules": {
+                "react-hooks/rules-of-hooks": "off"
+            }
+        },
+        {
+            "files": ["packages/cli/**/*"],
+            "rules": {
+                "@typescript-eslint/no-unused-vars": "off"
+            }
         }
     ],
     "rules": {
@@ -57,7 +69,8 @@
                 ],
                 "patterns": ["@mui/material/*/*/*"]
             }
-        ]
+        ],
+        "@typescript-eslint/no-explicit-any": "off"
     },
     "settings": {
         "react": {

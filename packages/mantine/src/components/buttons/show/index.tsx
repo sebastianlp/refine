@@ -79,12 +79,14 @@ export const ShowButton: React.FC<ShowButtonProps> = ({
             );
     };
 
+    const idToUse = recordItemId ?? id;
+
     const showUrl =
-        resource && (recordItemId || id)
-            ? generateShowUrl(resource, recordItemId! ?? id!, meta)
+        resource && typeof idToUse !== "undefined"
+            ? generateShowUrl(resource, idToUse, meta)
             : "";
 
-    const { variant, styles, ...commonProps } = rest;
+    const { variant, styles: _styles, ...commonProps } = rest;
 
     if (accessControlEnabled && hideIfUnauthorized && !data?.can) {
         return null;

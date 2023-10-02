@@ -21,7 +21,7 @@ export const stringifyConfig = {
 };
 
 export const routerBindings: RouterBindings = {
-    go: () => {
+    go: function useGoBinding() {
         const { push, replace, asPath: pathname } = useRouter();
 
         const fn = React.useCallback(
@@ -85,12 +85,12 @@ export const routerBindings: RouterBindings = {
 
         return fn;
     },
-    back: () => {
+    back: function useBackBinding() {
         const { back } = useRouter();
 
         return back;
     },
-    parse: () => {
+    parse: function useParseBinding() {
         const { query, asPath: pathname, isReady } = useRouter();
         const { resources } = useContext(ResourceContext);
 
@@ -100,10 +100,13 @@ export const routerBindings: RouterBindings = {
             return matchResourceFromRoute(cleanPathname, resources);
         }, [cleanPathname, resources]);
 
-        const inferredParams =
-            matchedRoute && cleanPathname && isReady
-                ? paramsFromCurrentPath(cleanPathname, matchedRoute)
-                : {};
+        const inferredParams = React.useMemo(
+            () =>
+                matchedRoute && cleanPathname && isReady
+                    ? paramsFromCurrentPath(cleanPathname, matchedRoute)
+                    : {},
+            [matchedRoute, cleanPathname, isReady],
+        );
 
         const inferredId = inferredParams.id;
 
@@ -141,13 +144,13 @@ export const routerBindings: RouterBindings = {
 
             return response;
         }, [
-            pathname,
+            inferredParams,
             query,
+            parsedParams,
             resource,
             action,
-            inferredParams,
             inferredId,
-            parsedParams,
+            cleanPathname,
         ]);
 
         return fn;

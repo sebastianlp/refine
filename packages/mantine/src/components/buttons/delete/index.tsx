@@ -111,7 +111,7 @@ export const DeleteButton: React.FC<DeleteButtonProps> = ({
         }
     };
 
-    const { variant, styles, ...commonProps } = rest;
+    const { variant, styles: _styles, ...commonProps } = rest;
 
     const { setWarnWhen } = useWarnAboutChange();
 

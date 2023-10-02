@@ -4,7 +4,7 @@ import {
     RefineButtonTestIds,
 } from "@refinedev/ui-types";
 
-import { act, render, TestWrapper } from "@test";
+import { render, TestWrapper } from "@test";
 
 export const buttonExportTests = function (
     ExportButton: React.ComponentType<RefineExportButtonProps<any, any>>,

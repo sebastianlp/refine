@@ -78,9 +78,11 @@ export const CloneButton: React.FC<CloneButtonProps> = ({
             );
     };
 
+    const idToUse = recordItemId ?? id;
+
     const cloneUrl =
-        resource && (recordItemId || id)
-            ? generateCloneUrl(resource, recordItemId! ?? id!, meta)
+        resource && typeof idToUse !== "undefined"
+            ? generateCloneUrl(resource, idToUse, meta)
             : "";
 
     if (accessControlEnabled && hideIfUnauthorized && !data?.can) {

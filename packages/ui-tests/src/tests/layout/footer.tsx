@@ -1,7 +1,7 @@
 import React from "react";
 import { RefineLayoutFooterProps } from "@refinedev/ui-types";
 
-import { act, render, TestWrapper } from "@test";
+import { render, TestWrapper } from "@test";
 
 export const layoutFooterTests = function (
     FooterElement: React.ComponentType<RefineLayoutFooterProps>,

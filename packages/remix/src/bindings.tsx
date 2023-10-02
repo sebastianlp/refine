@@ -20,7 +20,7 @@ export const stringifyConfig = {
 };
 
 export const routerBindings: RouterBindings = {
-    go: () => {
+    go: function useGoBinding() {
         const { search: existingSearch, hash: existingHash } = useLocation();
         const navigate = useNavigate();
 
@@ -30,7 +30,7 @@ export const routerBindings: RouterBindings = {
                 type,
                 query,
                 hash,
-                options: { keepQuery, keepHash } = {},
+                options: { keepQuery = false, keepHash = false } = {},
             }: GoConfig) => {
                 /** Construct query params */
                 const urlQuery = {
@@ -75,14 +75,14 @@ export const routerBindings: RouterBindings = {
 
         return fn;
     },
-    back: () => {
+    back: function useBackBinding() {
         const navigate = useNavigate();
 
         return () => {
             navigate(-1);
         };
     },
-    parse: () => {
+    parse: function useParseBinding() {
         const params = useParams();
         const { pathname, search } = useLocation();
         const { resources } = useContext(ResourceContext);
@@ -91,10 +91,13 @@ export const routerBindings: RouterBindings = {
             return matchResourceFromRoute(pathname, resources);
         }, [resources, pathname]);
 
-        const inferredParams =
-            matchedRoute && pathname
-                ? paramsFromCurrentPath(pathname, matchedRoute)
-                : {};
+        const inferredParams = React.useMemo(
+            () =>
+                matchedRoute && pathname
+                    ? paramsFromCurrentPath(pathname, matchedRoute)
+                    : {},
+            [matchedRoute, pathname],
+        );
 
         const inferredId = inferredParams.id;
 

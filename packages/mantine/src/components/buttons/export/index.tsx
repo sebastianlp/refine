@@ -25,7 +25,7 @@ export const ExportButton: React.FC<ExportButtonProps> = ({
 }) => {
     const translate = useTranslate();
 
-    const { variant, styles, ...commonProps } = rest;
+    const { variant, styles: _styles, ...commonProps } = rest;
 
     return hideText ? (
         <ActionIcon

@@ -43,7 +43,7 @@ export function withConnect(
 
         if (!otherProps.auditLogProvider) {
             auditLogProvider = {
-                create: async ({ author, ...params }) =>
+                create: async ({ author: _author, ...params }) =>
                     await sdk.log.create(params),
                 get: async ({ resource, action, meta, author }) =>
                     await sdk.log.get({

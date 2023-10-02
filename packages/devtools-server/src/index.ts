@@ -18,7 +18,7 @@ type Options = {
     projectPath?: string;
 };
 
-export const server = async ({ projectPath = process.cwd() }: Options = {}) => {
+export const server = async ({}: Options = {}) => {
     const app = express();
     const ws = serveWs();
 

@@ -4,8 +4,6 @@ import { MockJSONServer, TestWrapper, mockRouterBindings } from "@test";
 
 import { useDeleteMany } from "./useDeleteMany";
 import * as UseInvalidate from "../invalidate/index";
-import { useList } from "./useList";
-import { useMany } from "./useMany";
 import {
     assertListLength,
     assertMutationSuccess,

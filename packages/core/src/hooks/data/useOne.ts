@@ -25,7 +25,6 @@ import {
     useMeta,
 } from "@hooks";
 import {
-    queryKeys,
     pickDataProvider,
     pickNotDeprecated,
     useActiveAuthProvider,
@@ -172,7 +171,7 @@ export const useOne = <
         ({ queryKey, pageParam, signal }) =>
             getOne<TQueryFnData>({
                 resource: resource?.name ?? "",
-                id: id!,
+                id: id as BaseKey,
                 meta: {
                     ...combinedMeta,
                     queryContext: {

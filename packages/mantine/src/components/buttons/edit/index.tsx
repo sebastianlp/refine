@@ -80,12 +80,14 @@ export const EditButton: React.FC<EditButtonProps> = ({
             );
     };
 
+    const idToUse = recordItemId ?? id;
+
     const editUrl =
-        resource && (recordItemId ?? id)
-            ? generateEditUrl(resource, recordItemId! ?? id!, meta)
+        resource && typeof idToUse !== "undefined"
+            ? generateEditUrl(resource, idToUse, meta)
             : "";
 
-    const { variant, styles, ...commonProps } = rest;
+    const { variant, styles: _styles, ...commonProps } = rest;
 
     if (accessControlEnabled && hideIfUnauthorized && !data?.can) {
         return null;

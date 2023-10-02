@@ -31,7 +31,7 @@ export const CircularDeterminate: React.FC<CircularDeterminateProps> = ({
         return () => {
             clearInterval(timer);
         };
-    }, [timeCount]);
+    }, [timeCount, undoableTimeout]);
 
     return (
         <>

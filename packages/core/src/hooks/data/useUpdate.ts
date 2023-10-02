@@ -539,8 +539,12 @@ export const useUpdate = <
                     );
                 }
 
-                const { fields, operation, variables, ...rest } =
-                    pickNotDeprecated(meta, metaData) || {};
+                const {
+                    fields: _fields,
+                    operation: _operations,
+                    variables: _variables,
+                    ...rest
+                } = pickNotDeprecated(meta, metaData) || {};
 
                 log?.mutate({
                     action: "update",

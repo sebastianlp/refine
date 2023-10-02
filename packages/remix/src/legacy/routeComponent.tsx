@@ -144,6 +144,7 @@ export function RemixRouteComponent(
 
         const renderCrud = () => {
             switch (action) {
+                default:
                 case undefined: {
                     return (
                         <CanAccess

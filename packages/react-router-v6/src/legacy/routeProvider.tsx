@@ -222,7 +222,7 @@ export const RouteProvider = ({
         } else {
             return true;
         }
-    }, [authData, isError, authProvider?.isLegacy]);
+    }, [authData, isError, authProvider?.isLegacy, authProvider?.isProvided]);
 
     if (isFetching) {
         return (
@@ -246,15 +246,27 @@ export const RouteProvider = ({
             <Route
                 key={`${resource.route}`}
                 path={`${resource.route}`}
-                element={<ResourceComponent route={resource.route!} />}
+                element={
+                    resource.route ? (
+                        <ResourceComponent route={resource.route} />
+                    ) : null
+                }
             >
                 <Route
                     path=":action"
-                    element={<ResourceComponent route={resource.route!} />}
+                    element={
+                        resource.route ? (
+                            <ResourceComponent route={resource.route} />
+                        ) : null
+                    }
                 >
                     <Route
                         path=":id"
-                        element={<ResourceComponent route={resource.route!} />}
+                        element={
+                            resource.route ? (
+                                <ResourceComponent route={resource.route} />
+                            ) : null
+                        }
                     />
                 </Route>
             </Route>

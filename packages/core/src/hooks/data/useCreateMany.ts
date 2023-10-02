@@ -12,6 +12,7 @@ import {
     SuccessErrorNotification,
     MetaQuery,
     IQueryKeys,
+    BaseKey,
 } from "../../interfaces";
 import {
     useResource,
@@ -202,7 +203,7 @@ export const useCreateMany = <
 
                 const ids = response?.data
                     .filter((item) => item?.id !== undefined)
-                    .map((item) => item.id!);
+                    .map((item) => item.id as BaseKey);
 
                 publish?.({
                     channel: `resources/${resource.name}`,
@@ -218,8 +219,12 @@ export const useCreateMany = <
                     meta: pickNotDeprecated(meta, metaData),
                 });
 
-                const { fields, operation, variables, ...rest } =
-                    combinedMeta || {};
+                const {
+                    fields: _fields,
+                    operation: _operation,
+                    variables: _variables,
+                    ...rest
+                } = combinedMeta || {};
 
                 log?.mutate({
                     action: "createMany",

@@ -55,7 +55,7 @@ export const UnsavedChangesNotifier: React.FC<UnsavedChangesNotifierProps> = ({
         router.events.on("routeChangeStart", routeChangeStart);
 
         return () => router.events.off("routeChangeStart", routeChangeStart);
-    }, [warnWhen, warnMessage, setWarnWhen]);
+    }, [warnWhen, warnMessage, setWarnWhen, router.events]);
 
     return null;
 };

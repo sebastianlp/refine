@@ -3,7 +3,7 @@ import { AccessControlProvider } from "@refinedev/core";
 import { Route, Routes } from "react-router-dom";
 import { RefineCrudListProps, RefineButtonTestIds } from "@refinedev/ui-types";
 
-import { act, ITestWrapperProps, render, TestWrapper, waitFor } from "@test";
+import { ITestWrapperProps, render, TestWrapper, waitFor } from "@test";
 
 const renderList = (
     list: React.ReactNode,

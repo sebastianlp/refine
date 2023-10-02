@@ -75,6 +75,8 @@ export const ThemedSider: React.FC<RefineThemedLayoutSiderProps> = ({
         isDisabled: isSiderOpen || opened,
     };
 
+    const bgColor = useColorModeValue("brand.200", "brand.200");
+
     const renderTreeView = (tree: ITreeMenu[]) => {
         return tree.map((item) => {
             const { label, route, name, icon, children } = item;
@@ -142,10 +144,7 @@ export const ThemedSider: React.FC<RefineThemedLayoutSiderProps> = ({
                                         _active={{
                                             _before: {
                                                 content: "''",
-                                                bgColor: useColorModeValue(
-                                                    "brand.200",
-                                                    "brand.200",
-                                                ),
+                                                bgColor,
                                                 opacity: 0.05,
                                                 position: "absolute",
                                                 top: 0,

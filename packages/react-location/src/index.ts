@@ -55,11 +55,12 @@ const RouterProvider: IReactRouterProvider = {
     },
     useParams: () => {
         const match = useMatch();
+
+        const pathname = useLocation();
+
         if (!match) {
             return {};
         }
-
-        const pathname = useLocation();
 
         const paramsString = `/${Object.values(match.params).join("/")}`;
 

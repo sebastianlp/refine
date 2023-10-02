@@ -5,7 +5,9 @@ import { IResource } from "@refinedev/sdk";
 import { useSdk } from "../../hooks";
 
 export const Connect: React.FC<{}> = () => {
-    const { sdk } = useSdk();
+    const {
+        sdk: { draftResource },
+    } = useSdk();
     const { resources: contextResources } = useResource();
 
     useEffect(() => {
@@ -14,7 +16,7 @@ export const Connect: React.FC<{}> = () => {
 
             return {
                 name: name,
-                key: route!,
+                key: route ?? name,
                 hasList: !!list,
                 hasCreate: !!create,
                 hasEdit: !!edit,
@@ -24,10 +26,10 @@ export const Connect: React.FC<{}> = () => {
         });
 
         // send connect sdk
-        sdk.draftResource.create({
+        draftResource.create({
             resources,
         });
-    }, [contextResources]);
+    }, [contextResources, draftResource]);
 
     return null;
 };

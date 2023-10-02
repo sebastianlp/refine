@@ -34,7 +34,7 @@ export const ErrorComponent: React.FC<RefineErrorPageProps> = () => {
                 ),
             );
         }
-    }, [action, resource]);
+    }, [action, resource, translate]);
 
     return (
         <Grid

@@ -33,11 +33,11 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({
 
     const ActiveLink = routerType === "legacy" ? LegacyLink : Link;
 
+    const { resources } = useResource();
+
     if (breadcrumbs.length === 1) {
         return null;
     }
-
-    const { resources } = useResource();
 
     const rootRouteResource = matchResourceFromRoute("/", resources);
 

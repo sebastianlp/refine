@@ -1,4 +1,4 @@
-import { IResourceItem } from "@contexts/resource";
+import { IResourceItem } from "../../../contexts/resource";
 import { userFriendlyResourceName } from "../userFriendlyResourceName";
 import type { useTranslate } from "@hooks/translate";
 import { safeTranslate } from "../safe-translate";

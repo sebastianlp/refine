@@ -226,8 +226,12 @@ export const useCreate = <
                     meta: pickNotDeprecated(meta, metaData),
                 });
 
-                const { fields, operation, variables, ...rest } =
-                    combinedMeta || {};
+                const {
+                    fields: _fields,
+                    operation: _operation,
+                    variables: _variables,
+                    ...rest
+                } = combinedMeta || {};
 
                 log?.mutate({
                     action: "create",
