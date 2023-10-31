@@ -17,6 +17,7 @@ module.exports = {
                     orange: "#FF9933",
                     yellow: "#FFBF00",
                     green: "#1FAD66",
+                    "green-alt": "#26D97F",
                     cyan: "#0FBDBD",
                     "cyan-alt": "#47EBEB",
                     blue: "#0080FF",
@@ -162,6 +163,24 @@ module.exports = {
                     "url('https://refine.ams3.cdn.digitaloceanspaces.com/website/static/assets/landing-playground-slide-left.svg')",
                 "landing-playground-slide-right-bg":
                     "url('https://refine.ams3.cdn.digitaloceanspaces.com/website/static/assets/landing-playground-slide-right.svg')",
+                "landing-trusted-by-developers-dark": [
+                    "url(https://refine.ams3.cdn.digitaloceanspaces.com/website/static/assets/landing-noise.webp)",
+                    "radial-gradient(40% 100% at 110% 0%, rgba(71, 235, 235, 0.15) 0%, rgba(71, 235, 235, 0.00) 100%)",
+                ],
+                "landing-trusted-by-developers": [
+                    "radial-gradient(40% 100% at 110% 20%, rgba(0, 128, 255, 0.15) 0%, #F4F8FB 100%)",
+                ],
+                "landing-packages-dark": [
+                    "url(https://refine.ams3.cdn.digitaloceanspaces.com/website/static/assets/landing-noise.webp)",
+                    "radial-gradient(50% 100% at 50% -40%, rgba(71, 235, 235, 0.15) 0%, rgba(71, 235, 235, 0.00) 100%)",
+                ],
+                "landing-packages": [
+                    "radial-gradient(50% 100% at 50% -60%, rgba(0, 128, 255, 0.15) 0%, #F4F8FB 100%)",
+                ],
+                "landing-packages-text":
+                    "linear-gradient(180deg, #14141F 0%, #474E6B 100%)",
+                "landing-packages-text-dark":
+                    "linear-gradient(180deg, #FFF 0%, rgba(255, 255, 255, 0.50) 100%)",
                 "hackathon-button-bg":
                     "linear-gradient(90deg, rgba(255, 76, 166, 0.3) 0%, rgba(128, 0, 255, 0.3) 50%, rgba(0, 128, 255, 0.3) 100%);",
                 "refine-week-supabase-timeline-item-bg":
@@ -238,6 +257,10 @@ module.exports = {
                     "walkthrough-bounce 3s ease-in-out infinite",
                 "top-announcement-glow":
                     "top-announcement-glow 1s ease-in-out infinite alternate",
+                "landing-packages-left":
+                    "landing-packages-left 25s linear infinite",
+                "landing-packages-right":
+                    "landing-packages-right 25s linear infinite",
             },
             keyframes: {
                 "walkthrough-bounce": {
@@ -328,6 +351,14 @@ module.exports = {
                         opacity: 0,
                     },
                 },
+                "landing-packages-left": {
+                    "0%": { transform: "translateX(0)" },
+                    "100%": { transform: "translateX(-50%)" },
+                },
+                "landing-packages-right": {
+                    "0%": { transform: "translateX(0)" },
+                    "100%": { transform: "translateX(50%)" },
+                },
             },
         },
         screens: {
@@ -338,13 +369,12 @@ module.exports = {
             "content-4xl": "1536px",
             "header-sm": "640px",
             "header-md": "1200px",
-            "landing-xs": "360px",
-            "landing-sm": "480px",
-            "landing-md": "640px",
             "landing-content": "944px",
-            "landing-lg": "960px",
-            "landing-xl": "1200px",
-            "landing-2xl": "1440px",
+            "landing-xs": "360px",
+            "landing-sm": "720px",
+            "landing-md": "960px",
+            "landing-lg": "1296px",
+            "landing-xl": "1440px",
             "landing-footer": "1264px",
             "pricing-content-sm": "640px",
             "pricing-content": "960px",
