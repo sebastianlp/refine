@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import animate, { textToFrame } from "@aliemir/console-animate-text";
 import { Command } from "commander";
 import execa from "execa";
 import { readFileSync } from "fs";
@@ -47,7 +48,7 @@ const bootstrap = () => {
         .option("--disable-telemetry", "disable telemetry data collection")
         .allowUnknownOption(true)
         .allowExcessArguments(true)
-        .action((_, command: Command) => {
+        .action(async (_, command: Command) => {
             try {
                 // --example
                 if (command.getOptionValue("example")) {
@@ -57,6 +58,26 @@ const bootstrap = () => {
                     );
                     return;
                 }
+
+                await animate({
+                    intro: [
+                        "|",
+                        "|•)",
+                        "•_•)",
+                        "( •_•)",
+                        "( •_•)",
+                        "( •_•)>-■",
+                        "( •_•)>⌐■-■",
+                        "( •_•)>⌐■-■",
+                        "( •>⌐■-■",
+                        "(⌐■_■)",
+                        "(⌐■_■)",
+                        "(⌐■_■)",
+                    ],
+                    outro: ["(⌐■_■)", "(⌐■_■)", "(⌐■_■)", "■_■)", "|■)", "|"],
+                    text: textToFrame("welcome to refine!", "(⌐■_■)"),
+                });
+
                 // rest
                 const superplateExecutable = require.resolve(".bin/superplate");
                 execa.sync(
