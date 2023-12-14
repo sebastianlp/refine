@@ -25,8 +25,6 @@
 
 <br/>
 
-w
-
 <div align="center">refine is an open-source, headless React framework for developers building enterprise internal tools, admin panels, dashboards, B2B applications.
 
 <br/>
